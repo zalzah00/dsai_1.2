@@ -34,6 +34,26 @@ Here are the common data types, every database has its own set of data types.
 | `DATETIME` | Date and time.             |
 | `BOOLEAN`  | True or false.             |
 
+### Entity-relationship diagram (ERD)
+
+An entity-relationship diagram (ERD) is a visual representation of entities and their relationships in a database. ERD is a data modelling technique. It is a graphical representation of data requirements for a database.
+
+#### Entities
+
+An entity is a real-world object, for example, an employee, bank account, car, etc. An entity has attributes that represent properties such as an employee has a name, age, and salary. An entity set is a collection of similar entities. For example, all employees have some common attributes.
+
+#### Relationships
+
+A relationship is an association among entities. For example, an employee works at a department, a car has a model, etc. A relationship set is a collection of similar relationships. For example, all employees work at some department. A relationship can have attributes. For example, the salary of an employee in a department.
+
+#### Cardinality
+
+Cardinality represents the number of entities in one entity set, which can be associated with the number of entities of another entity set. There are three types of cardinality:
+
+- One to one: One entity from entity set A can be associated with at most one entity of entity set B and vice versa.
+- One to many: One entity from entity set A can be associated with more than one entity of entity set B, but an entity from entity set B can be associated with at most one entity of entity set A.
+- Many to many: One entity from entity set A can be associated with more than one entity of entity set B and vice versa.
+
 ### ERD Tools
 
 Use [dbdiagram.io](https://dbdiagram.io/d) to design and create ERD. Sign in with your Google or Github account.

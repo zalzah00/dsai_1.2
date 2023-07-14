@@ -1,4 +1,4 @@
-# 1.1 Introduction to Database
+# 1.2 Introduction to Database
 
 ## Dependencies
 
