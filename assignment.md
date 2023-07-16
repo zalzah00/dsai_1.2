@@ -10,7 +10,7 @@ Paste the answer as DBML in the answer code section below each question.
 
 ### Question 1
 
-Construct an ER diagram for a social media company whose database includes information about users, their followers, and the posts that they make. Users can follow multiple users and create multiple posts.
+Construct an ERD for a social media company whose database includes information about users, their followers, and the posts that they make. Users can follow multiple users and create multiple posts.
 
 Each entity has the following attributes:
 
@@ -26,7 +26,7 @@ Answer:
 
 ### Question 2
 
-Construct an ER diagram for a company that sells books online. The company has a website where customers can browse available books and add them to their shopping carts. Each cart can contain multiple books.
+Construct an ERD for a company that sells books online. The company has a website where customers can browse available books and add them to their shopping carts. Each cart can contain multiple books.
 
 There are 4 entities, think of what attributes each entity should have.
 

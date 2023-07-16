@@ -17,7 +17,8 @@ Learners will understand:
 - Relational database
 - Conceptual, logical and physical data model
 - Normalization
-- Referential integrity
+- Data modeling
+- Schema design
 - Entity-relationship diagram (ERD)
 
 Learners will be able to:
@@ -33,7 +34,7 @@ Learners will be able to:
 | 15 mins  | Activity                | Recap on self-study and prework materials.                           |
 | 45 mins  | Concept                 | Part 1: Introduction to database.                                    |
 |          | **1 HR MARK**           |
-| 45 mins  | Concept                 | Part 2: Data modelling.                                              |
+| 45 mins  | Concept                 | Part 2: Data modeling.                                               |
 | 15 mins  | Break                   |                                                                      |
 |          | **2 HR MARK**           |
 | 45 mins  | Code-along              | Demonstrate and guide learners on how to create ERD from case study. |

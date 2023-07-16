@@ -8,7 +8,7 @@ Basic understanding of RDBMS tables and columns.
 
 ### Lesson Overview
 
-This lesson introduces database concepts and data modelling. Learners will be able to perform data modelling and create ERD from case study.
+This lesson introduces database concepts and data modeling. Learners will be able to perform data modeling and create ERD from case study.
 
 ---
 
@@ -18,9 +18,9 @@ Conceptual knowledge, refer to slides.
 
 ---
 
-## Part 2 - Data modelling
+## Part 2 - Data modeling
 
-### SQL Data Types
+### 2.1 SQL Data Types
 
 Here are the common data types, every database has its own set of data types.
 
@@ -34,19 +34,19 @@ Here are the common data types, every database has its own set of data types.
 | `DATETIME` | Date and time.             |
 | `BOOLEAN`  | True or false.             |
 
-### Entity-relationship diagram (ERD)
+### 2.2 Entity-relationship diagram (ERD)
 
-An entity-relationship diagram (ERD) is a visual representation of entities and their relationships in a database. ERD is a data modelling technique. It is a graphical representation of data requirements for a database.
+An entity-relationship diagram (ERD) is a visual representation of entities and their relationships in a database. ERD is a data modeling technique. It is a graphical representation of data requirements for a database.
 
-#### Entities
+#### 2.2.1 Entities
 
 An entity is a real-world object, for example, an employee, bank account, car, etc. An entity has attributes that represent properties such as an employee has a name, age, and salary. An entity set is a collection of similar entities. For example, all employees have some common attributes.
 
-#### Relationships
+#### 2.2.2 Relationships
 
 A relationship is an association among entities. For example, an employee works at a department, a car has a model, etc. A relationship set is a collection of similar relationships. For example, all employees work at some department. A relationship can have attributes. For example, the salary of an employee in a department.
 
-#### Cardinality
+#### 2.2.3 Cardinality
 
 Cardinality represents the number of entities in one entity set, which can be associated with the number of entities of another entity set. There are three types of cardinality:
 
@@ -54,15 +54,15 @@ Cardinality represents the number of entities in one entity set, which can be as
 - One to many: One entity from entity set A can be associated with more than one entity of entity set B, but an entity from entity set B can be associated with at most one entity of entity set A.
 - Many to many: One entity from entity set A can be associated with more than one entity of entity set B and vice versa.
 
-### ERD Tools
+### 2.3 ERD Tools
 
 Use [dbdiagram.io](https://dbdiagram.io/d) to design and create ERD. Sign in with your Google or Github account.
 
-### Case Study
+### 2.4 Case Study
 
-#### Scenario 1
+#### 2.4.1 Scenario 1
 
-Construct an ER diagram for a car insurance company whose customers own one or more cars each. Each car has associated with it zero to any number of recorded accidents.
+Construct an ERD for a car insurance company whose customers own one or more cars each. Each car has associated with it zero to any number of recorded accidents.
 
 Each entity has the following attributes:
 
@@ -103,9 +103,9 @@ Ref: cars.customer_id > customers.id // many-to-one
 Ref: accidents.car_id > cars.id // many-to-one
 ```
 
-#### Scenario 2
+#### 2.4.2 Scenario 2
 
-Construct an ER diagram for a school system whose classes have students and teachers. Each student belongs to a single class. Each teacher may teach more than one class, and each class may have more than one teacher.
+Construct an ERD for a school system whose classes have students and teachers. Each student belongs to a single class. Each teacher may teach more than one class, and each class may have more than one teacher.
 
 Each entity has the following attributes:
 
@@ -113,6 +113,6 @@ Each entity has the following attributes:
 - Teacher: id, name, address, phone, email
 - Class: id, name, teacher_id
 
-#### Scenario 3
+#### 2.4.3 Scenario 3
 
-Construct an ER diagram for a company that sells movies online. The company has a website where customers can browse available movies and place orders. Each order can contain multiple movies.
+Construct an ERD for a company that sells movies online. The company has a website where customers can browse available movies and place orders. Each order can contain multiple movies.
