@@ -8,7 +8,7 @@ Basic understanding of RDBMS tables and columns.
 
 ### Lesson Overview
 
-This lesson introduces database concepts and data modeling. Learners will be able to perform data modeling and create ERD from case study.
+This lesson introduces database concepts, data modeling and normalization. Learners will be able to perform data modeling and create ERD from case study. Learners will also be able to normalize database schema.
 
 ---
 
@@ -119,15 +119,17 @@ Each entity has the following attributes:
 
 Construct an ERD for a company that sells movies online. The company has a website where customers can browse available movies and place orders. Each order can contain multiple movies.
 
-### 2.5 Normalization
+---
+
+## Part 3 - Normalization
 
 Normalization is a process of organizing the data in the database to remove data redundancy, avoid anomalies and ensure referential integrity.
 
-#### 2.5.1 Data Redundancy
+### 3.1 Data Redundancy
 
 Data redundancy is a condition created within a database or data storage technology in which the same piece of data is held in two separate places. This can mean two different fields within a single database, or two different spots in multiple software environments or platforms.
 
-#### 2.5.2 Anomalies
+### 3.2 Anomalies
 
 There are three types of anomalies that occur when the database is not normalized.
 
@@ -135,7 +137,7 @@ There are three types of anomalies that occur when the database is not normalize
 - Deletion anomaly: Loss of data due to deletion of other data.
 - Update anomaly: Inconsistency due to redundancy of data.
 
-#### 2.5.3 Referential Integrity
+### 3.3 Referential Integrity
 
 Referential integrity is a database concept that ensures that relationships between tables _remain consistent_. Every value of a foreign key _must be matched_ to a value of the primary key of another table.
 
@@ -143,7 +145,7 @@ Referential integrity is a database concept that ensures that relationships betw
 - If a value of the primary key is modified or deleted, all matching foreign key values must be modified/deleted as well.
 - It prohibits the deletion of a row in the referenced table if there are corresponding rows in the referencing table.
 
-#### 2.5.4 Normal Forms
+### 3.4 Normal Forms
 
 There are five normal forms (1NF, 2NF, 3NF, BCNF, 4NF) most commonly used in database normalization.
 
@@ -155,7 +157,7 @@ There are five normal forms (1NF, 2NF, 3NF, BCNF, 4NF) most commonly used in dat
 
 Here we are just going to discuss the first 3 normal forms, which are the most commonly used.
 
-##### 1NF
+#### 1NF
 
 A table is in 1NF if:
 
@@ -165,7 +167,7 @@ A table is in 1NF if:
 
 No repeating groups means that each row should be unique, and each column should have a single value.
 
-##### 2NF
+#### 2NF
 
 A table is in 2NF if:
 
@@ -174,7 +176,7 @@ A table is in 2NF if:
 
 A partial dependency is when one or more columns in a table depend on a subset of the primary key, but not on the whole primary key.
 
-##### 3NF
+#### 3NF
 
 A table is in 3NF if:
 
@@ -183,17 +185,15 @@ A table is in 3NF if:
 
 A transitive dependency is when one or more columns in a table depend on a non-key column in that table.
 
-#### Denormalized Table
+### Denormalized Table
 
 No normalization. Nested and redundant data is allowed.
 
-### 2.6 Normalization Example
-
-#### Scenario
+### 3.5 Case Study
 
 Let's use an example of ecommerce company with customer orders. Each customer can place multiple orders. Each order can contain multiple items.
 
-#### 2.6.1 First Normal Form (1NF)
+#### 3.5.1 First Normal Form (1NF)
 
 The `OrderDetails` table is in 1NF because each row is unique and each column has a single value.
 
@@ -220,7 +220,7 @@ To create a unique primary (composite) key, let's number the lines in each order
 
 Now we have a unique primary key, which is the combination of `OrderID` and `LineNumber`.
 
-#### 2.6.2 Second Normal Form (2NF)
+#### 3.5.2 Second Normal Form (2NF)
 
 To reach 2NF, we need to remove partial dependencies. A partial dependency is when one or more columns in a table depend on a subset of the primary key, but not on the whole primary key; it can only occur only when the _primary key is composite_.
 
@@ -246,7 +246,7 @@ To fix this, we need to split the table into two tables: `Orders` and `OrderLine
 | 300     | 1          | 10     | iPhone   | 1000      |
 | 300     | 2          | 30     | Macbook  | 2000      |
 
-#### 2.6.3 Third Normal Form (3NF)
+#### 3.5.3 Third Normal Form (3NF)
 
 Notice that `ItemID` determines `ItemName` and `ItemPrice`. This is a transitive dependency. A transitive dependency is when one or more columns in a table depend on a non-key column in that table.
 

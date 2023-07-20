@@ -38,6 +38,6 @@ Learners will be able to:
 | 45 mins  | Concept                 | Part 2: Data modeling. Demonstrate and guide learners on how to create ERD from case study. |
 | 15 mins  | Break                   |                                                                                             |
 |          | **2 HR MARK**           |
-| 45 mins  | Code-along              | Normalize database schema.                                                                  |
+| 45 mins  | Code-along              | Part 3: Normalization. Demonstrate and guide learners on how to normalize database schema.  |
 | 15 mins  | Briefing / Q&A          | Brief on references, assignment, quiz and Q&A.                                              |
 |          | **END CLASS 3 HR MARK** |
