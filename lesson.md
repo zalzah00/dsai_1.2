@@ -38,6 +38,8 @@ Here are the common data types, every database has its own set of data types.
 
 An entity-relationship diagram (ERD) is a visual representation of entities and their relationships in a database. ERD is a data modeling technique. It is a graphical representation of data requirements for a database.
 
+![ERD](./assets/erd.png)
+
 #### 2.2.1 Entities
 
 An entity is a real-world object, for example, an employee, bank account, car, etc. An entity has attributes that represent properties such as an employee has a name, age, and salary. An entity set is a collection of similar entities. For example, all employees have some common attributes.
@@ -116,3 +118,156 @@ Each entity has the following attributes:
 #### 2.4.3 Scenario 3
 
 Construct an ERD for a company that sells movies online. The company has a website where customers can browse available movies and place orders. Each order can contain multiple movies.
+
+### 2.5 Normalization
+
+Normalization is a process of organizing the data in the database to remove data redundancy, avoid anomalies and ensure referential integrity.
+
+#### 2.5.1 Data Redundancy
+
+Data redundancy is a condition created within a database or data storage technology in which the same piece of data is held in two separate places. This can mean two different fields within a single database, or two different spots in multiple software environments or platforms.
+
+#### 2.5.2 Anomalies
+
+There are three types of anomalies that occur when the database is not normalized.
+
+- Insertion anomaly: Inability to insert data into the database due to absence of other data.
+- Deletion anomaly: Loss of data due to deletion of other data.
+- Update anomaly: Inconsistency due to redundancy of data.
+
+#### 2.5.3 Referential Integrity
+
+Referential integrity is a database concept that ensures that relationships between tables _remain consistent_. Every value of a foreign key _must be matched_ to a value of the primary key of another table.
+
+- If the primary key value does not exist, the row referencing the value in the other table cannot be inserted into the table.
+- If a value of the primary key is modified or deleted, all matching foreign key values must be modified/deleted as well.
+- It prohibits the deletion of a row in the referenced table if there are corresponding rows in the referencing table.
+
+#### 2.5.4 Normal Forms
+
+There are five normal forms (1NF, 2NF, 3NF, BCNF, 4NF) most commonly used in database normalization.
+
+- First Normal Form (1NF)
+- Second Normal Form (2NF)
+- Third Normal Form (3NF)
+- Boyce-Codd Normal Form (BCNF)
+- Fourth Normal Form (4NF)
+
+Here we are just going to discuss the first 3 normal forms, which are the most commonly used.
+
+##### 1NF
+
+A table is in 1NF if:
+
+- It contains no repeating groups.
+- Each cell contains a single value.
+- Entries in a column are of the same kind.
+
+No repeating groups means that each row should be unique, and each column should have a single value.
+
+##### 2NF
+
+A table is in 2NF if:
+
+- It is in 1NF.
+- It includes no partial dependencies.
+
+A partial dependency is when one or more columns in a table depend on a subset of the primary key, but not on the whole primary key.
+
+##### 3NF
+
+A table is in 3NF if:
+
+- It is in 2NF.
+- It contains no transitive dependencies.
+
+A transitive dependency is when one or more columns in a table depend on a non-key column in that table.
+
+#### Denormalized Table
+
+No normalization. Nested and redundant data is allowed.
+
+### 2.6 Normalization Example
+
+#### Scenario
+
+Let's use an example of ecommerce company with customer orders. Each customer can place multiple orders. Each order can contain multiple items.
+
+#### 2.6.1 First Normal Form (1NF)
+
+The `OrderDetails` table is in 1NF because each row is unique and each column has a single value.
+
+| OrderID | ItemID | ItemName | ItemPrice | CustomerID | CustomerName | OrderDate  |
+| ------- | ------ | -------- | --------- | ---------- | ------------ | ---------- |
+| 100     | 10     | iPhone   | 1000      | 1          | John         | 2021-01-01 |
+| 100     | 20     | iPad     | 500       | 1          | John         | 2021-01-01 |
+| 200     | 30     | Macbook  | 2000      | 1          | John         | 2021-01-02 |
+| 300     | 10     | iPhone   | 1000      | 2          | Mary         | 2021-01-03 |
+| 300     | 30     | Macbook  | 2000      | 2          | Mary         | 2021-01-03 |
+
+The problem is that now we don’t have a unique primary key. That is, 100 occurs in
+the `OrderID` column in two different rows.
+
+To create a unique primary (composite) key, let's number the lines in each order by adding a new column called `LineNumber`.
+
+| OrderID | LineNumber | ItemID | ItemName | ItemPrice | CustomerID | CustomerName | OrderDate  |
+| ------- | ---------- | ------ | -------- | --------- | ---------- | ------------ | ---------- |
+| 100     | 1          | 10     | iPhone   | 1000      | 1          | John         | 2021-01-01 |
+| 100     | 2          | 20     | iPad     | 500       | 1          | John         | 2021-01-01 |
+| 200     | 1          | 30     | Macbook  | 2000      | 1          | John         | 2021-01-02 |
+| 300     | 1          | 10     | iPhone   | 1000      | 2          | Mary         | 2021-01-03 |
+| 300     | 2          | 30     | Macbook  | 2000      | 2          | Mary         | 2021-01-03 |
+
+Now we have a unique primary key, which is the combination of `OrderID` and `LineNumber`.
+
+#### 2.6.2 Second Normal Form (2NF)
+
+To reach 2NF, we need to remove partial dependencies. A partial dependency is when one or more columns in a table depend on a subset of the primary key, but not on the whole primary key; it can only occur only when the _primary key is composite_.
+
+In this case, the last three columns (`CustomerID`, `CustomerName`, `OrderDate`) depend on only part of the primary key (`OrderID`). They do not depend on the `LineNumber` column.
+
+To fix this, we need to split the table into two tables: `Orders` and `OrderLineItems`.
+
+`Orders` table:
+
+| OrderID | CustomerID | CustomerName | OrderDate  |
+| ------- | ---------- | ------------ | ---------- |
+| 100     | 1          | John         | 2021-01-01 |
+| 200     | 1          | John         | 2021-01-02 |
+| 300     | 2          | Mary         | 2021-01-03 |
+
+`OrderLineItems` table:
+
+| OrderID | LineNumber | ItemID | ItemName | ItemPrice |
+| ------- | ---------- | ------ | -------- | --------- |
+| 100     | 1          | 10     | iPhone   | 1000      |
+| 100     | 2          | 20     | iPad     | 500       |
+| 200     | 1          | 30     | Macbook  | 2000      |
+| 300     | 1          | 10     | iPhone   | 1000      |
+| 300     | 2          | 30     | Macbook  | 2000      |
+
+#### 2.6.3 Third Normal Form (3NF)
+
+Notice that `ItemID` determines `ItemName` and `ItemPrice`. This is a transitive dependency. A transitive dependency is when one or more columns in a table depend on a non-key column in that table.
+
+Let's break `OrderLineItems` into two tables: `OrderLineItems` and `Items`.
+
+`OrderLineItems` table:
+
+| OrderID | LineNumber | ItemID |
+| ------- | ---------- | ------ |
+| 100     | 1          | 10     |
+| 100     | 2          | 20     |
+| 200     | 1          | 30     |
+| 300     | 1          | 10     |
+| 300     | 2          | 30     |
+
+`Items` table:
+
+| ItemID | ItemName | ItemPrice |
+| ------ | -------- | --------- |
+| 10     | iPhone   | 1000      |
+| 20     | iPad     | 500       |
+| 30     | Macbook  | 2000      |
+
+> `Orders`` table does not satisfy 3NF. What transitive dependencies are present? How would you fix this?
