@@ -115,9 +115,13 @@ Each entity has the following attributes:
 - Teacher: id, name, address, phone, email
 - Class: id, name, teacher_id
 
+> Write the DBML to create the ERD.
+
 #### 2.4.3 Scenario 3
 
 Construct an ERD for a company that sells movies online. The company has a website where customers can browse available movies and place orders. Each order can contain multiple movies.
+
+> List the entities and attributes. Write the DBML to create the ERD.
 
 ---
 
@@ -270,4 +274,4 @@ Let's break `OrderLineItems` into two tables: `OrderLineItems` and `Items`.
 | 20     | iPad     | 500       |
 | 30     | Macbook  | 2000      |
 
-> `Orders`` table does not satisfy 3NF. What transitive dependencies are present? How would you fix this?
+> `Orders` table does not satisfy 3NF. What transitive dependencies are present? How would you fix this?
