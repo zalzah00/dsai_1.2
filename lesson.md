@@ -60,6 +60,8 @@ Cardinality represents the number of entities in one entity set, which can be as
 
 Use [dbdiagram.io](https://dbdiagram.io/d) to design and create ERD. Sign in with your Google or Github account.
 
+`dbdiagram.io` is a free online database schema design and modeling tool. It allows you to draw ERD using a markup language called DBML (Database Markup Language). It is a simple and easy-to-use language to define and document database schemas.
+
 ### 2.4 Case Study
 
 #### 2.4.1 Scenario 1
@@ -139,7 +141,7 @@ There are three types of anomalies that occur when the database is not normalize
 
 - Insertion anomaly: Inability to insert data into the database due to absence of other data.
 - Deletion anomaly: Loss of data due to deletion of other data.
-- Update anomaly: Inconsistency due to redundancy of data.
+- Update anomaly: Update inconsistency due to redundancy of data.
 
 ### 3.3 Referential Integrity
 
@@ -151,13 +153,14 @@ Referential integrity is a database concept that ensures that relationships betw
 
 ### 3.4 Normal Forms
 
-There are five normal forms (1NF, 2NF, 3NF, BCNF, 4NF) most commonly used in database normalization.
+There are six normal forms (1NF, 2NF, 3NF, BCNF, 4NF, 5NF) for database normalization.
 
 - First Normal Form (1NF)
 - Second Normal Form (2NF)
 - Third Normal Form (3NF)
 - Boyce-Codd Normal Form (BCNF)
 - Fourth Normal Form (4NF)
+- Fifth Normal Form (5NF)
 
 Here we are just going to discuss the first 3 normal forms, which are the most commonly used.
 
