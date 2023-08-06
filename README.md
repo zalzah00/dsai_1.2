@@ -32,8 +32,8 @@ Learners will be able to:
 | Duration | What                    | How or Why                                                                                  |
 | -------- | ----------------------- | ------------------------------------------------------------------------------------------- |
 | - 5mins  | Start zoom session      | So that learners can join early and start class on time.                                    |
-| 15 mins  | Activity                | Recap on self-study and prework materials.                                                  |
-| 45 mins  | Concept                 | Part 1: Introduction to database.                                                           |
+| 20 mins  | Activity                | Recap on self-study and prework materials.                                                  |
+| 40 mins  | Concept                 | Part 1: Introduction to database.                                                           |
 |          | **1 HR MARK**           |
 | 45 mins  | Concept                 | Part 2: Data modeling. Demonstrate and guide learners on how to create ERD from case study. |
 | 15 mins  | Break                   |                                                                                             |
