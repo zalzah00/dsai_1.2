@@ -5,7 +5,6 @@
   - https://www.digitalocean.com/community/tutorials/sql-data-types
 - DBML Reference
   - https://dbml.dbdiagram.io/docs/
-- Normalization
-  - BCNF: https://www.studytonight.com/dbms/boyce-codd-normal-form.php
-  - 4NF: https://www.studytonight.com/dbms/fourth-normal-form.php
-  - 5NF: https://www.studytonight.com/dbms/fifth-normal-form.php
+- Relational Database
+  - [Codd's 12 rules](https://en.wikipedia.org/wiki/Codd%27s_12_rules)
+  - [Normalization](https://en.wikipedia.org/wiki/Database_normalization)

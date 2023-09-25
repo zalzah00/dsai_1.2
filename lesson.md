@@ -129,7 +129,14 @@ Construct an ERD for a company that sells movies online. The company has a websi
 
 ## Part 3 - Normalization
 
-Normalization is a process of organizing the data in the database to remove data redundancy, avoid anomalies and ensure referential integrity.
+Normalization is a process of organizing the data in the database in accordance with a series of so-called _normal forms_ to remove _data redundancy_, avoid _anomalies_ and ensure _referential integrity_.
+
+The objective of normalization is as follows:
+
+1. To free the database from unwanted insertions, updates, & deletion dependencies
+2. To reduce the need for refactoring the database as new types of data are introduced
+3. To make the relational model more informative to users
+4. To make the database neutral to the query statistics
 
 ### 3.1 Data Redundancy
 
