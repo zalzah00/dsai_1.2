@@ -2,7 +2,7 @@
 
 ## Brief
 
-In this lesson, we will be learning about the concept of big data and data engineering. We will also explore 2 popular NoSQL databases- MongoDB and redis, and how to perform CRUD operations on them.
+This lesson introduces database concepts, data modeling and normalization. Learners will be able to perform data modeling and create ERD from case study. Learners will also be able to normalize database schema.
 
 ### Foundation
 
