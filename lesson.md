@@ -175,29 +175,23 @@ Here we are just going to discuss the first 3 normal forms, which are the most c
 
 A table is in 1NF if:
 
-- It contains no repeating groups.
-- Each cell contains a single value.
-- Entries in a column are of the same kind.
-
-No repeating groups means that each row should be unique, and each column should have a single value.
+- Each table cell should contain a single value
+- Each record needs to be unique
+- Each column should contain values of the same type
 
 #### 2NF
 
 A table is in 2NF if:
 
-- It is in 1NF.
-- It includes no partial dependencies.
-
-A partial dependency is when one or more columns in a table depend on a subset of the primary key, but not on the whole primary key.
+- Must be in 1NF
+- No partial depencies (All non-key attributes must fully depend on the primary key )
 
 #### 3NF
 
 A table is in 3NF if:
 
-- It is in 2NF.
-- It contains no transitive dependencies.
-
-A transitive dependency is when one or more columns in a table depend on a non-key column in that table.
+- Must be in 2NF
+- No transitive dependencies (Non-key attributes shouldn't depend on other non-key attributes)
 
 ### Denormalized Table
 
