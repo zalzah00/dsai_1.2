@@ -21,7 +21,31 @@ Each entity has the following attributes:
 Answer:
 
 ```dbml
+Table users {
+  id int [pk, increment]
+  username varchar
+  email varchar
+  created_at datetime
+}
 
+Table posts {
+  id int [pk, increment]
+  title varchar
+  body text
+  user_id int [ref: > users.id]
+  status varchar
+  created_at datetime
+}
+
+Table follows {
+  following_user_id int [ref: > users.id]
+  followed_user_id int [ref: > users.id]
+  created_at datetime
+
+  Indexes {
+    (following_user_id, followed_user_id) [unique]
+  }
+}
 ```
 
 ### Question 2
@@ -38,6 +62,40 @@ There are 4 entities, think of what attributes each entity should have.
 Answer:
 
 ```dbml
+Table customers {
+  id int [pk, increment]
+  name varchar
+  email varchar
+  created_at datetime
+}
+
+Table books {
+  id int [pk, increment]
+  title varchar
+  author varchar
+  price decimal
+  isbn varchar
+  published_date date
+}
+
+Table carts {
+  id int [pk, increment]
+  customer_id int [ref: > customers.id]
+  created_at datetime
+  status varchar
+}
+
+Table cart_items {
+  id int [pk, increment]
+  cart_id int [ref: > carts.id]
+  book_id int [ref: > books.id]
+  quantity int
+  added_at datetime
+
+  Indexes {
+    (cart_id, book_id) [unique]
+  }
+}
 
 ```
 
